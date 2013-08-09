@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="com.kernix.documentinteraction"
+    version="1.0.0">
+  <engines>
+    <engine name="cordova" version=">=3.0.0" />
+  </engines>
+  <name>DocumentInteraction</name>
+  <description>DocumentInteraction phonegap plugin</description>
+  <author>Pierre-Emmanuel Bois</author>
+  <email>pebois@kernix.com</email>
+  <license>Apache 2.0 License</license>
+  <js-module src="www/documentinteraction.js" name="DocumentInteraction">
+    <clobbers target="DocumentInteraction" />
+  </js-module>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="DocumentInteraction">
+        <param name="ios-package" value="DocumentInteraction"/>
+      </feature>
+    </config-file>
+    <header-file src="src/ios/DocumentInteraction.h" />
+    <source-file src="src/ios/DocumentInteraction.m" />
+  </platform>
+</plugin>
