@@ -7,7 +7,7 @@ DocumentInteraction phonegap plugin
 
 ## Platforms ##
 
-### IOS ###
+* IOS
 
 ## Using the plugin ##
 
