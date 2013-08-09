@@ -3,7 +3,7 @@ phonegap-DocumentInteraction
 
 DocumentInteraction phonegap plugin
 
-![screenshot](https://raw.github.com/pebois/phonegap-DocumentInteraction/master/sample.png)
+![screenshot](https://raw.github.com/pebois/phonegap-plugin-DocumentInteraction/master/sample.png)
 
 ## Using the plugin ##
 
