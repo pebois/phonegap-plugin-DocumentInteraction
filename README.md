@@ -5,6 +5,10 @@ DocumentInteraction phonegap plugin
 
 ![screenshot](https://raw.github.com/pebois/phonegap-plugin-DocumentInteraction/master/sample.png)
 
+## Platforms ##
+
+### IOS ###
+
 ## Using the plugin ##
 
 ### OpenIn ###
