@@ -1,4 +1,4 @@
-phonegap-DocumentInteraction
+phonegap-plugin-DocumentInteraction
 ============================
 
 DocumentInteraction phonegap plugin
