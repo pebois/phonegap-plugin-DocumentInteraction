@@ -7,7 +7,7 @@ DocumentInteraction phonegap plugin
 
 ## Using the plugin ##
 
-### OpenIN ###
+### OpenIn ###
 ```
         DocumentInteraction.openIn("sample","pdf", function (msg) {
             console.log(msg);
