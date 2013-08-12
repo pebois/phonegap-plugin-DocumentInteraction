@@ -18,23 +18,19 @@
     NSString* url = [command.arguments objectAtIndex:0];
     NSString* ext = [command.arguments objectAtIndex:1];
     if (url != nil && [url length] > 0) {
-        [self.commandDelegate runInBackground:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
             if (fileURL) {
                 self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
                 [self.documentInteractionController setDelegate:self];
                 [self.documentInteractionController presentPreviewAnimated:YES];
             }
-        }];
+        });
     } else {
         CDVPluginResult* pluginResult = nil;
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
-}
-
-- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
-    return self.viewController;
 }
 
 - (void)openIn:(CDVInvokedUrlCommand*)command
@@ -43,12 +39,14 @@
     NSString* url = [command.arguments objectAtIndex:0];
     NSString* ext = [command.arguments objectAtIndex:1];
     if (url != nil && [url length] > 0) {
-        NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
-        if (fileURL) {
-            self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
-            [self.documentInteractionController setDelegate:self];
-            [self.documentInteractionController presentOpenInMenuFromRect:CGRectZero inView:self.viewController.view animated:YES];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
+            if (fileURL) {
+                self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+                [self.documentInteractionController setDelegate:self];
+                [self.documentInteractionController presentOpenInMenuFromRect:CGRectZero inView:self.viewController.view animated:YES];
+            }
+        });
     } else {
         CDVPluginResult* pluginResult = nil;
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
@@ -62,17 +60,23 @@
     NSString* url = [command.arguments objectAtIndex:0];
     NSString* ext = [command.arguments objectAtIndex:1];
     if (url != nil && [url length] > 0) {
-        NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
-        if (fileURL) {
-            self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
-            [self.documentInteractionController setDelegate:self];
-            [self.documentInteractionController presentOptionsMenuFromRect:CGRectZero inView:self.viewController.view animated:YES];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
+            if (fileURL) {
+                self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+                [self.documentInteractionController setDelegate:self];
+                [self.documentInteractionController presentOptionsMenuFromRect:CGRectZero inView:self.viewController.view animated:YES];
+            }
+        });
     } else {
         CDVPluginResult* pluginResult = nil;
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }
+}
+
+- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
+    return self.viewController;
 }
 
 - (void)documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)controller {
@@ -93,10 +97,6 @@
 - (void)documentInteractionController:(UIDocumentInteractionController *)controller willBeginSendingToApplication:(NSString *)application {
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:application];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
-}
-
-- (BOOL)documentInteractionController:(UIDocumentInteractionController *)controller canPerformAction:(SEL)action{
-    return false;
 }
 
 @end
