@@ -9,8 +9,6 @@
 #import <Cordova/CDV.h>
 
 @implementation DocumentInteraction
-@synthesize callbackId;
-@synthesize documentInteractionController;
 
 - (void)preview:(CDVInvokedUrlCommand*)command
 {
@@ -21,9 +19,9 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
             if (fileURL) {
-                self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
-                [self.documentInteractionController setDelegate:self];
-                [self.documentInteractionController presentPreviewAnimated:YES];
+                documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+                [documentInteractionController setDelegate:self];
+                [documentInteractionController presentPreviewAnimated:YES];
             }
         });
     } else {
@@ -42,9 +40,9 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
             if (fileURL) {
-                self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
-                [self.documentInteractionController setDelegate:self];
-                [self.documentInteractionController presentOpenInMenuFromRect:CGRectZero inView:self.viewController.view animated:YES];
+                documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+                [documentInteractionController setDelegate:self];
+                [documentInteractionController presentOpenInMenuFromRect:CGRectZero inView:self.viewController.view animated:YES];
             }
         });
     } else {
@@ -63,9 +61,9 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
             if (fileURL) {
-                self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
-                [self.documentInteractionController setDelegate:self];
-                [self.documentInteractionController presentOptionsMenuFromRect:CGRectZero inView:self.viewController.view animated:YES];
+                documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
+                [documentInteractionController setDelegate:self];
+                [documentInteractionController presentOptionsMenuFromRect:CGRectZero inView:self.viewController.view animated:YES];
             }
         });
     } else {

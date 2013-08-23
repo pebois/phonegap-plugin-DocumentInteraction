@@ -12,8 +12,6 @@
   NSString* callbackId;
   UIDocumentInteractionController* documentInteractionController;
 }
-@property (nonatomic, copy) NSString* callbackId;
-@property (strong, nonatomic) UIDocumentInteractionController* documentInteractionController;
 
 - (void)preview:(CDVInvokedUrlCommand*)command;
 - (void)openIn:(CDVInvokedUrlCommand*)command;
