@@ -13,23 +13,23 @@ DocumentInteraction phonegap plugin
 
 ### OpenIn ###
 ```
-        DocumentInteraction.openIn("sample","pdf", function (msg) {
-            console.log(msg);
-        });
+DocumentInteraction.openIn("sample","pdf", function (msg) {
+    console.log(msg);
+});
 ```
 
 ### OptionsMenu ###
 ```
-        DocumentInteraction.optionsMenu("sample","pdf", function (msg) {
-            console.log(msg);
-        });
+DocumentInteraction.optionsMenu("sample","pdf", function (msg) {
+    console.log(msg);
+});
 ```
 
 ### Preview ###
 ```
-        DocumentInteraction.preview("sample","pdf", function (msg) {
-            console.log(msg);
-        });
+DocumentInteraction.preview("sample","pdf", function (msg) {
+    console.log(msg);
+});
 ```
 
 ## Licence ##
