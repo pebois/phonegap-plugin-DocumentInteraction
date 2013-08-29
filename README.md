@@ -1,7 +1,7 @@
 phonegap-plugin-DocumentInteraction
 ============================
 
-DocumentInteraction phonegap plugin
+[DocumentInteraction](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/Reference/Reference.html) phonegap plugin
 
 ![screenshot](https://raw.github.com/pebois/phonegap-plugin-DocumentInteraction/master/sample.png)
 
