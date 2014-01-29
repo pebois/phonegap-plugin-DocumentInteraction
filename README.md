@@ -12,21 +12,21 @@ phonegap-plugin-DocumentInteraction
 ## Using the plugin ##
 
 ### OpenIn ###
-```
+```js
 DocumentInteraction.openIn("sample","pdf", function (msg) {
     console.log(msg);
 });
 ```
 
 ### OptionsMenu ###
-```
+```js
 DocumentInteraction.optionsMenu("sample","pdf", function (msg) {
     console.log(msg);
 });
 ```
 
 ### Preview ###
-```
+```js
 DocumentInteraction.preview("sample","pdf", function (msg) {
     console.log(msg);
 });
