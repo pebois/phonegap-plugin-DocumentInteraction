@@ -18,6 +18,13 @@
     if (url != nil && [url length] > 0) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
+            NSString *documentsDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+
+            if (!fileURL && ([url rangeOfString:documentsDir].location == 0 &&
+                             [url rangeOfString:@"/.."].location == NSNotFound)) {
+                fileURL = [NSURL fileURLWithPath:url];
+            }
+
             if (fileURL) {
                 documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
                 [documentInteractionController setDelegate:self];
@@ -39,6 +46,13 @@
     if (url != nil && [url length] > 0) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
+            NSString *documentsDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+
+            if (!fileURL && ([url rangeOfString:documentsDir].location == 0 &&
+                             [url rangeOfString:@"/.."].location == NSNotFound)) {
+                fileURL = [NSURL fileURLWithPath:url];
+            }
+
             if (fileURL) {
                 documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
                 [documentInteractionController setDelegate:self];
@@ -60,6 +74,13 @@
     if (url != nil && [url length] > 0) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSURL *fileURL = [[NSBundle mainBundle] URLForResource:url withExtension:ext];
+            NSString *documentsDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+
+            if (!fileURL && ([url rangeOfString:documentsDir].location == 0 &&
+                             [url rangeOfString:@"/.."].location == NSNotFound)) {
+                fileURL = [NSURL fileURLWithPath:url];
+            }
+
             if (fileURL) {
                 documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:fileURL];
                 [documentInteractionController setDelegate:self];
